@@ -2,6 +2,24 @@
 
 
 [[projects]]
+  name = "github.com/go-sql-driver/mysql"
+  packages = ["."]
+  revision = "a0583e0143b1624142adab07e0e97fe106d99561"
+  version = "v1.3"
+
+[[projects]]
+  name = "github.com/jinzhu/gorm"
+  packages = ["."]
+  revision = "5174cc5c242a728b435ea2be8a2f7f998e15429b"
+  version = "v1.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/jinzhu/inflection"
+  packages = ["."]
+  revision = "1c35d901db3da928c72a72d8458480cc9ade058f"
+
+[[projects]]
   name = "github.com/labstack/echo"
   packages = ["."]
   revision = "b338075a0fc6e1a0683dbf03d09b4957a289e26f"
@@ -30,6 +48,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/siddontang/go"
+  packages = ["config"]
+  revision = "cb568a3e5cc06256f91a2da5a87455f717eb33f4"
+
+[[projects]]
+  branch = "master"
   name = "github.com/valyala/bytebufferpool"
   packages = ["."]
   revision = "e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7"
@@ -45,7 +69,11 @@
   name = "golang.org/x/crypto"
   packages = [
     "acme",
-    "acme/autocert"
+    "acme/autocert",
+    "argon2",
+    "blake2b",
+    "pbkdf2",
+    "scrypt"
   ]
   revision = "d585fd2cc9195196078f516b69daff6744ef5e84"
 
@@ -58,6 +86,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "e81cc2cb20c5749b79cb0f42cab35f3eb61055f07d7352d99b06b146175242d4"
+  inputs-digest = "d5fc8f1cfb9752fb5405fbc2882753cc02d8fa522f38e5e304a3530750c8c89e"
   solver-name = "gps-cdcl"
   solver-version = 1
