@@ -18,4 +18,6 @@ func init() {
 	db.DB().SetMaxOpenConns(20)
 	db.SingularTable(true)
 	db.LogMode(true)
+
+	db.AutoMigrate(&Account{})
 }
