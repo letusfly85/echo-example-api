@@ -1,8 +1,6 @@
 package models
 
-import (
-	"github.com/jinzhu/gorm"
-)
+import "github.com/jinzhu/gorm"
 
 // Add fields `ID`, `CreatedAt`, `UpdatedAt`, `DeletedAt`
 type Account struct {
@@ -16,4 +14,10 @@ type Account struct {
 	Email string
 	AvatarUrl string
 	Activated bool
+	CreateUserId uint
+	CreateServiceId uint
+	UpdateUserId uint
+	UpdateServiceId uint
+	DeleteUserId uint
+	DeleteServiceId uint
 }
