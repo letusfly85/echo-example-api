@@ -57,13 +57,12 @@ func (a *Account) Create(param Account) (err error) {
 
 func (a *Account) Find(param Account) (err error) {
 	account := Account{}
-
 	account.Email = param.Email
 
 	key := argon2.Key([]byte(param.Password), salt, 4, 32*1024, 1, 32)
 	expectedPassword := hex.EncodeToString(key[:])
 
-	if err := db.First(&account).Error; err != nil {
+	if err := db.Where("email = ?", param.Email).First(&account).Error; err != nil {
 		fmt.Printf("%v\n", err.Error())
 		return err
 	}
