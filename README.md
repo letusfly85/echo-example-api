@@ -22,11 +22,11 @@ curl -vv -H 'Content-Type: application/json' -c ses.txt -XPOST localhost:3030/si
 ### Sign In Example
 
 ```sh
-curl -vv -H 'Content-Type: application/json' -b ses.txt -XGET localhost:3030/accounts
+curl -vv -H 'Content-Type: application/json' -c ses.txt -XGET localhost:3030/accounts
 ```
 
 ### You can Access Resource by Session stored txt file
 
 ```sh
-curl -vv -H 'Content-Type: application/json' -c ses.txt -XPOST localhost:3030/signIn -d '{"email": "fuga@com", "password": "fugafuga"}'
+curl -vv -H 'Content-Type: application/json' -b ses.txt -XPOST localhost:3030/signIn -d '{"email": "fuga@com", "password": "fugafuga"}'
 ```
