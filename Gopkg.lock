@@ -2,10 +2,34 @@
 
 
 [[projects]]
+  name = "github.com/dgrijalva/jwt-go"
+  packages = ["."]
+  revision = "dbeaa9332f19a944acb5736b4456cfcc02140e29"
+  version = "v3.1.0"
+
+[[projects]]
   name = "github.com/go-sql-driver/mysql"
   packages = ["."]
   revision = "a0583e0143b1624142adab07e0e97fe106d99561"
   version = "v1.3"
+
+[[projects]]
+  name = "github.com/gorilla/context"
+  packages = ["."]
+  revision = "1ea25387ff6f684839d82767c1733ff4d4d15d0a"
+  version = "v1.1"
+
+[[projects]]
+  name = "github.com/gorilla/securecookie"
+  packages = ["."]
+  revision = "667fe4e3466a040b780561fe9b51a83a3753eefc"
+  version = "v1.1"
+
+[[projects]]
+  name = "github.com/gorilla/sessions"
+  packages = ["."]
+  revision = "ca9ada44574153444b00d3fd9c8559e4cc95f896"
+  version = "v1.1"
 
 [[projects]]
   name = "github.com/jinzhu/gorm"
@@ -21,15 +45,26 @@
 
 [[projects]]
   name = "github.com/labstack/echo"
-  packages = ["."]
+  packages = [
+    ".",
+    "middleware"
+  ]
   revision = "b338075a0fc6e1a0683dbf03d09b4957a289e26f"
   version = "3.2.6"
 
 [[projects]]
+  name = "github.com/labstack/echo-contrib"
+  packages = ["session"]
+  revision = "05b673bd85c645d769ea2d10e933f3fa1ee1acfa"
+  version = "0.4.1"
+
+[[projects]]
   name = "github.com/labstack/gommon"
   packages = [
+    "bytes",
     "color",
-    "log"
+    "log",
+    "random"
   ]
   revision = "57409ada9da0f2afad6664c49502f8c50fbd8476"
   version = "0.2.3"
@@ -48,9 +83,9 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/siddontang/go"
-  packages = ["config"]
-  revision = "cb568a3e5cc06256f91a2da5a87455f717eb33f4"
+  name = "github.com/srinathgs/mysqlstore"
+  packages = ["."]
+  revision = "4f803440ed5b694a6499ba6310dc14245910fc3e"
 
 [[projects]]
   branch = "master"
@@ -71,11 +106,9 @@
     "acme",
     "acme/autocert",
     "argon2",
-    "blake2b",
-    "pbkdf2",
-    "scrypt"
+    "blake2b"
   ]
-  revision = "d585fd2cc9195196078f516b69daff6744ef5e84"
+  revision = "0fcca4842a8d74bfddc2c96a073bd2a4d2a7a2e8"
 
 [[projects]]
   branch = "master"
@@ -86,6 +119,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "d5fc8f1cfb9752fb5405fbc2882753cc02d8fa522f38e5e304a3530750c8c89e"
+  inputs-digest = "e9d0be0936196b340af712ae34ce79ccd0cd81731d5f37e041d6a4a8a0c55171"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -1,15 +1,28 @@
 package main
 
 import (
-	"net/http"
-
+	"github.com/gorilla/sessions"
 	"github.com/labstack/echo"
+	"github.com/labstack/echo-contrib/session"
+
+	"github.com/letusfly85/echo-example-api/controller"
+	"github.com/letusfly85/echo-example-api/middlewares"
 )
+
 
 func main() {
 	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
-	})
+
+	e.Use(session.Middleware(sessions.NewCookieStore([]byte("secret"))))
+	e.Use(middlewares.CheckSession)
+
+	e.POST("/signUp", controller.SignUp)
+	e.POST("/signIn", controller.SignIn)
+
+	e.POST("/signOut", controller.SignOut)
+	e.POST("/retire", controller.Retire)
+
+	e.GET("/accounts", controller.AccountList)
+
 	e.Logger.Fatal(e.Start(":3030"))
 }

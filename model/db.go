@@ -1,4 +1,4 @@
-package models
+package model
 
 import (
 	"github.com/jinzhu/gorm"
@@ -9,10 +9,11 @@ var db *gorm.DB
 
 func init() {
 	//todo specify database connection settings
-	db, err := gorm.Open("mysql", "root:password@/example?charset=utf8&parseTime=True&loc=Local")
+	initDb, err := gorm.Open("mysql", "root:password@/example?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		panic("failed to connect database")
 	}
+	db = initDb
 
 	db.DB().SetMaxIdleConns(10)
 	db.DB().SetMaxOpenConns(20)
@@ -20,4 +21,8 @@ func init() {
 	db.LogMode(true)
 
 	db.AutoMigrate(&Account{})
+}
+
+func GetDB() *gorm.DB {
+	return db
 }
