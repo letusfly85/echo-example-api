@@ -39,11 +39,10 @@ func SignIn(c echo.Context) (err error) {
 	return c.JSON(http.StatusCreated, "sign in successfully")
 }
 
-//todo impl
 func SignOut(c echo.Context) error {
-	println("sign out")
+	err := DeleteSession(c)
 
-	return nil
+	return err
 }
 
 func Retire(c echo.Context) error {

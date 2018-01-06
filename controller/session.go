@@ -35,3 +35,19 @@ func SaveSession(c echo.Context) (err error) {
 
 	return err
 }
+
+func DeleteSession(c echo.Context) (err error) {
+	request := c.Request()
+	writer := c.Response().Writer
+
+	session, err := store.Get(request, "Authorize")
+	if err != nil {
+		return echo.NewHTTPError(
+			http.StatusUnauthorized,
+			nil,
+		)
+	}
+	err = store.Delete(request, writer, session)
+
+	return err
+}
