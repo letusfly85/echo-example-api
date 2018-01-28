@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gorilla/sessions"
 	"github.com/labstack/echo"
+	m "github.com/labstack/echo/middleware"
 	"github.com/labstack/echo-contrib/session"
 
 	"github.com/letusfly85/echo-example-api/controller"
@@ -15,6 +16,8 @@ func main() {
 
 	e.Use(session.Middleware(sessions.NewCookieStore([]byte("secret"))))
 	e.Use(middlewares.CheckSession)
+	e.Use(m.RequestID())
+	e.Use(m.Logger())
 
 	e.POST("/signUp", controller.SignUp)
 	e.POST("/signIn", controller.SignIn)
