@@ -5,6 +5,8 @@ import (
 	"github.com/letusfly85/echo-example-api/model"
 	"net/http"
 	"strconv"
+	"github.com/letusfly85/echo-example-api/middlewares/log"
+	"go.uber.org/zap"
 )
 
 func SignUp(c echo.Context) (err error) {
@@ -25,6 +27,9 @@ func SignUp(c echo.Context) (err error) {
 
 func SignIn(c echo.Context) (err error) {
 	param := new(model.Account)
+
+	var requestId = c.Response().Header().Get(echo.HeaderXRequestID)
+	log.Info("test log", zap.String("id", requestId))
 
 	if err := c.Bind(param); err != nil {
 		return c.JSON(http.StatusBadRequest, "sign in parameter was invalid")
